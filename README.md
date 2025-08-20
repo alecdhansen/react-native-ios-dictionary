@@ -67,7 +67,6 @@ import type { DictionaryResult, TermExistsResult } from 'react-native-dictionary
 
 - iOS 11.0+
 - React Native 0.60+
-- Dictionary must be downloaded on device (Settings > General > Dictionary)
 
 ## License
 
