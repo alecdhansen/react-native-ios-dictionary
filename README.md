@@ -4,6 +4,8 @@ Access the native iOS dictionary in React Native.
 
 **iOS only** - No Android implementation included, won't affect Android builds.
 
+**Bare React Native only** - Does not work with Expo managed workflow. You need access to native iOS code.
+
 ## Installation
 
 ```bash
@@ -20,26 +22,31 @@ cd ios && pod install
 ## Usage
 
 ```typescript
-import IOSDictionary from 'react-native-dictionary-ios';
+// Default import
+import Dictionary from 'react-native-dictionary-ios';
 
-// Show dictionary for a word
-await IOSDictionary.showDefinition('example');
+await Dictionary.showDefinition('example');
+await Dictionary.checkIfTermExists('hello');
+await Dictionary.isDictionaryAvailable();
 
-// Check if a word exists
-const result = await IOSDictionary.checkIfTermExists('hello');
-console.log(result.exists); // true or false
+// Named imports
+import { showDefinition, checkIfTermExists, isDictionaryAvailable } from 'react-native-dictionary-ios';
 
-// Check if dictionary is available
-const available = await IOSDictionary.isDictionaryAvailable();
+await showDefinition('example');
+const result = await checkIfTermExists('hello');
+const available = await isDictionaryAvailable();
+
+// Import types
+import type { DictionaryResult, TermExistsResult } from 'react-native-dictionary-ios';
 ```
 
 ## API
 
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `showDefinition(term: string)` | `Promise<{success: boolean, term: string}>` | Shows the iOS dictionary view for a word |
-| `checkIfTermExists(term: string)` | `Promise<{exists: boolean, term: string}>` | Checks if a word has a definition |
-| `isDictionaryAvailable()` | `Promise<boolean>` | Checks if dictionary service is available |
+| Method                            | Returns                                     | Description                               |
+| --------------------------------- | ------------------------------------------- | ----------------------------------------- |
+| `showDefinition(term: string)`    | `Promise<{success: boolean, term: string}>` | Shows the iOS dictionary view for a word  |
+| `checkIfTermExists(term: string)` | `Promise<{exists: boolean, term: string}>`  | Checks if a word has a definition         |
+| `isDictionaryAvailable()`         | `Promise<boolean>`                          | Checks if dictionary service is available |
 
 ## Requirements
 
