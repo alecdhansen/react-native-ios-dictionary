@@ -1,0 +1,39 @@
+{
+  "name": "react-native-dictionary-ios",
+  "version": "1.0.1",
+  "description": "Access native iOS dictionary in React Native",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "ios",
+    "*.podspec"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "dictionary"
+  ],
+  "author": "Alec Hansen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alecdhansen/react-native-ios-dictionary.git"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.70.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}
